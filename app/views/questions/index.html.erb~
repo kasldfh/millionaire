@@ -1,0 +1,21 @@
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer A</th>
+    <th>Answer B</th>
+    <th>Answer C</th>
+    <th>Answer D</th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.question_text %></td>
+      <td><%= question.answer_a %></td>
+      <td><%= question.answer_b %></td>
+      <td><%= question.answer_c %></td>
+      <td><%= question.answer_d %></td>
+    </tr>
+  <% end %>
+</table>
