@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151109012928) do
+ActiveRecord::Schema.define(:version => 20151109155523) do
 
   create_table "questions", :force => true do |t|
     t.string   "question_text"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(:version => 20151109012928) do
     t.text     "answer_b"
     t.text     "answer_c"
     t.text     "answer_d"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "correct_answer"
   end
 
 end

@@ -7,6 +7,7 @@
     <th> Answer B </th>
     <th> Answer C </th>
     <th> Answer D </th>
+    <th> Correct answer </th>
   </tr>
  
   <% @questions.each do |question| %>
@@ -16,6 +17,7 @@
       <td><%= question.answer_b %></td>
       <td><%= question.answer_c %></td>
       <td><%= question.answer_d %></td>
+      <td><%= question.correct_answer %></td>
     </tr>
   <% end %>
 </table>

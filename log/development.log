@@ -1814,3 +1814,336 @@ Processing by QuestionsController#index as HTML
   [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions" 
   Rendered questions/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 6.9ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-09 09:00:48 -0600
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5.3ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 09:00:51 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6.2ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:01:02 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 8.7ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-09 09:40:43 -0600
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4.7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-09 09:40:43 -0600
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4.6ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:40:45 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 11.9ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20151109012928)
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 09:45:44 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 84.2ms
+
+ActionView::Template::Error (undefined method `correct_answer' for #<Question:0x007f2874cd4fd0>):
+    17:       <td><%= question.answer_b %></td>
+    18:       <td><%= question.answer_c %></td>
+    19:       <td><%= question.answer_d %></td>
+    20:       <td><%= question.correct_answer %></td>
+    21:     </tr>
+    22:   <% end %>
+    23: </table>
+  app/views/questions/index.html.erb:20:in `block in _app_views_questions_index_html_erb__1392671943166492873_69905866062840'
+  app/views/questions/index.html.erb:13:in `each'
+  app/views/questions/index.html.erb:13:in `_app_views_questions_index_html_erb__1392671943166492873_69905866062840'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.3ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20151109012928)
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 09:55:41 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 83.9ms
+
+ActionView::Template::Error (undefined method `correct_answer' for #<Question:0x007fb2552ffad0>):
+    17:       <td><%= question.answer_b %></td>
+    18:       <td><%= question.answer_c %></td>
+    19:       <td><%= question.answer_d %></td>
+    20:       <td><%= question.correct_answer %></td>
+    21:     </tr>
+    22:   <% end %>
+    23: </table>
+  app/views/questions/index.html.erb:20:in `block in _app_views_questions_index_html_erb__2507800271806511499_70201953639480'
+  app/views/questions/index.html.erb:13:in `each'
+  app/views/questions/index.html.erb:13:in `_app_views_questions_index_html_erb__2507800271806511499_70201953639480'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (31.1ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:58:36 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 28.6ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:58:37 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 11.1ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2015-11-09 09:58:43 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2On7gP13CcHNinlRtnrY5gSl91yT6PpHo41z4QsrJ7w=", "question"=>{"question_text"=>"", "answer_a"=>"", "answer_b"=>"", "answer_c"=>"", "answer_d"=>"", "correct_answer"=>""}, "commit"=>"Save Question"}
+Completed 500 Internal Server Error in 1.8ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: correct_answer):
+  app/controllers/questions_controller.rb:7:in `new'
+  app/controllers/questions_controller.rb:7:in `create'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.9ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 09:59:38 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.6ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 89.9ms
+
+ActionView::Template::Error (undefined method `correct_answer' for #<Question:0x007fa8e8e734f0>):
+    17:       <td><%= question.answer_b %></td>
+    18:       <td><%= question.answer_c %></td>
+    19:       <td><%= question.answer_d %></td>
+    20:       <td><%= question.correct_answer %></td>
+    21:     </tr>
+    22:   <% end %>
+    23: </table>
+  app/views/questions/index.html.erb:20:in `block in _app_views_questions_index_html_erb___4157150340082719215_70181717914300'
+  app/views/questions/index.html.erb:13:in `each'
+  app/views/questions/index.html.erb:13:in `_app_views_questions_index_html_erb___4157150340082719215_70181717914300'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (30.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:59:43 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 29.1ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 09:59:44 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 18.4ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2015-11-09 09:59:46 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2On7gP13CcHNinlRtnrY5gSl91yT6PpHo41z4QsrJ7w=", "question"=>{"question_text"=>"", "answer_a"=>"", "answer_b"=>"", "answer_c"=>"", "answer_d"=>"", "correct_answer"=>""}, "commit"=>"Save Question"}
+Completed 500 Internal Server Error in 2.7ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: correct_answer):
+  app/controllers/questions_controller.rb:7:in `new'
+  app/controllers/questions_controller.rb:7:in `create'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.4ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20151109012928)
+Migrating to AddCorrectAnswerToQuestions (20151109155523)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "questions" ADD "correct_answer" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151109155523')[0m
+  [1m[35m (140.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 10:03:28 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 84.1ms (Views: 24.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 10:03:36 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 28.8ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 10:03:40 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 16.1ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2015-11-09 10:04:01 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2On7gP13CcHNinlRtnrY5gSl91yT6PpHo41z4QsrJ7w=", "question"=>{"question_text"=>"Is eric cool?", "answer_a"=>"No", "answer_b"=>"No", "answer_c"=>"NO", "answer_d"=>"No?", "correct_answer"=>"Yes"}, "commit"=>"Save Question"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "questions" ("answer_a", "answer_b", "answer_c", "answer_d", "correct_answer", "created_at", "question_text", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["answer_a", "No"], ["answer_b", "No"], ["answer_c", "NO"], ["answer_d", "No?"], ["correct_answer", "Yes"], ["created_at", Mon, 09 Nov 2015 16:04:01 UTC +00:00], ["question_text", "Is eric cool?"], ["updated_at", Mon, 09 Nov 2015 16:04:01 UTC +00:00]]
+  [1m[35m (268.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/questions/7
+Completed 302 Found in 292.1ms (ActiveRecord: 277.8ms)
+
+
+Started GET "/questions/7" for 127.0.0.1 at 2015-11-09 10:04:02 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered questions/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 13.2ms (Views: 5.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2015-11-09 10:04:06 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7.4ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/questions/answer" for 127.0.0.1 at 2015-11-09 10:29:39 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"answer"}
+  [1m[36mQuestion Load (0.6ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "answer"]]
+Completed 404 Not Found in 10.2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Question with id=answer):
+  app/controllers/questions_controller.rb:17:in `show'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.3ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started GET "/questions/answer" for 127.0.0.1 at 2015-11-09 10:34:50 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"answer"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "answer"]]
+Completed 404 Not Found in 8.4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Question with id=answer):
+  app/controllers/questions_controller.rb:17:in `show'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.2ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 10:34:59 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 17.1ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2015-11-09 10:35:00 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 11.3ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/answer" for 127.0.0.1 at 2015-11-09 10:37:01 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"answer"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "answer"]]
+Completed 404 Not Found in 2.5ms
+
+ActiveRecord::RecordNotFound (Couldn't find Question with id=answer):
+  app/controllers/questions_controller.rb:17:in `show'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.8ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.9ms)
+
+
+Started GET "/question/answer" for 127.0.0.1 at 2015-11-09 10:37:05 -0600
+
+ActionController::RoutingError (No route matches [GET] "/question/answer"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/eric/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/eric/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/eric/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/questions/answer" for 127.0.0.1 at 2015-11-09 10:37:14 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"answer"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "answer"]]
+Completed 404 Not Found in 2.5ms
+
+ActiveRecord::RecordNotFound (Couldn't find Question with id=answer):
+  app/controllers/questions_controller.rb:17:in `show'
+
+
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.8ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+  Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+Connecting to database specified by database.yml
