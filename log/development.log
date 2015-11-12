@@ -2147,3 +2147,204 @@ ActiveRecord::RecordNotFound (Couldn't find Question with id=answer):
   Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
   Rendered /home/eric/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20151109012928)
+Migrating to AddCorrectAnswerToQuestions (20151109155523)
+Migrating to CreateTopics (20151112003519)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151112003519')[0m
+  [1m[35m (157.1ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-11 18:37:17 -0600
+Connecting to database specified by database.yml
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 24.6ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 18:37:19 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  Rendered topics/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 57.9ms (Views: 12.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/topics/new" for 127.0.0.1 at 2015-11-11 18:37:23 -0600
+Processing by TopicsController#new as HTML
+  Rendered topics/_form.html.erb (24.1ms)
+  Rendered topics/new.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 65.6ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/topics" for 127.0.0.1 at 2015-11-11 18:38:13 -0600
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k5ZEQT8Qx5n4t3YnvZe3UyOFcK3xQUZrOcvgBjKwnPo=", "topic"=>{"title"=>"first topic", "description"=>"this is the first topics"}, "commit"=>"Create Topic"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (9.9ms)[0m  [1mINSERT INTO "topics" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 12 Nov 2015 00:38:13 UTC +00:00], ["description", "this is the first topics"], ["title", "first topic"], ["updated_at", Thu, 12 Nov 2015 00:38:13 UTC +00:00]]
+  [1m[35m (257.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics/1
+Completed 302 Found in 279.6ms (ActiveRecord: 267.6ms)
+
+
+Started GET "/topics/1" for 127.0.0.1 at 2015-11-11 18:38:13 -0600
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered topics/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15.8ms (Views: 7.5ms | ActiveRecord: 0.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20151109012928)
+Migrating to AddCorrectAnswerToQuestions (20151109155523)
+Migrating to CreateTopics (20151112003519)
+Migrating to CreateVotes (20151112013212)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151112013212')[0m
+  [1m[35m (133.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/topics/" for 127.0.0.1 at 2015-11-11 19:55:35 -0600
+Connecting to database specified by database.yml
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  Rendered topics/index.html.erb within layouts/application (83.6ms)
+Completed 200 OK in 157.2ms (Views: 101.9ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/topics/1/upvote" for 127.0.0.1 at 2015-11-11 19:55:43 -0600
+Processing by TopicsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"k5ZEQT8Qx5n4t3YnvZe3UyOFcK3xQUZrOcvgBjKwnPo=", "id"=>"1"}
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "votes" ("created_at", "topic_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Thu, 12 Nov 2015 01:55:43 UTC +00:00], ["topic_id", 1], ["updated_at", Thu, 12 Nov 2015 01:55:43 UTC +00:00]]
+  [1m[35m (138.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics
+Completed 302 Found in 173.7ms (ActiveRecord: 148.3ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 19:55:43 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  Rendered topics/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 14.5ms (Views: 10.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/topics/1/upvote" for 127.0.0.1 at 2015-11-11 19:55:45 -0600
+Processing by TopicsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"k5ZEQT8Qx5n4t3YnvZe3UyOFcK3xQUZrOcvgBjKwnPo=", "id"=>"1"}
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "votes" ("created_at", "topic_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Thu, 12 Nov 2015 01:55:45 UTC +00:00], ["topic_id", 1], ["updated_at", Thu, 12 Nov 2015 01:55:45 UTC +00:00]]
+  [1m[35m (142.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics
+Completed 302 Found in 152.4ms (ActiveRecord: 144.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 19:55:45 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.5ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  Rendered topics/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 15.8ms (Views: 12.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 20:03:01 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  Rendered topics/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 72.1ms (Views: 45.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-11 20:03:05 -0600
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 15.5ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 20:03:27 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.5ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  Rendered topics/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15.2ms (Views: 12.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/topics/new" for 127.0.0.1 at 2015-11-11 20:03:41 -0600
+Processing by TopicsController#new as HTML
+  Rendered topics/_form.html.erb (21.2ms)
+  Rendered topics/new.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 35.3ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/topics" for 127.0.0.1 at 2015-11-11 20:03:59 -0600
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k5ZEQT8Qx5n4t3YnvZe3UyOFcK3xQUZrOcvgBjKwnPo=", "topic"=>{"title"=>"a second topic for your viewing pleasure", "description"=>"alsd;kfj alkdfh aldsjfh aldskfh a fuck everything in life a;dslk a;ldfja;l df;kaj f"}, "commit"=>"Create Topic"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "topics" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 12 Nov 2015 02:03:59 UTC +00:00], ["description", "alsd;kfj alkdfh aldsjfh aldskfh a fuck everything in life a;dslk a;ldfja;l df;kaj f"], ["title", "a second topic for your viewing pleasure"], ["updated_at", Thu, 12 Nov 2015 02:03:59 UTC +00:00]]
+  [1m[36m (290.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics
+Completed 302 Found in 302.5ms (ActiveRecord: 291.4ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 20:04:00 -0600
+Processing by TopicsController#index as HTML
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 2
+  Rendered topics/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 19.7ms (Views: 16.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 20:07:28 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.5ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 2[0m
+  Rendered topics/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 24.4ms (Views: 20.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/topics/1" for 127.0.0.1 at 2015-11-11 20:07:32 -0600
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.5ms)[0m  SELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered topics/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10.7ms (Views: 7.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/topics/2" for 127.0.0.1 at 2015-11-11 20:07:36 -0600
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered topics/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6.3ms (Views: 4.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics/1" for 127.0.0.1 at 2015-11-11 20:08:03 -0600
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered topics/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 9.9ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2015-11-11 20:09:40 -0600
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" [0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."topic_id" = 2[0m
+  Rendered topics/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 22.0ms (Views: 18.5ms | ActiveRecord: 1.2ms)

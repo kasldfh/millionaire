@@ -1,5 +1,12 @@
 RailsApp::Application.routes.draw do
 
+  resources :topics do
+    member do
+      post 'upvote'
+    end
+  end
+
+
   resources :questions
   
   root to: 'pages#home'
